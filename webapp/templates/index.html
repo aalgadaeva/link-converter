@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <title>Youtube Video Converter</title>
+</head>
+
+<body>
+
+    <div class="col-sm-12">
+
+        <h4 style='text-align: center;'>YOUTUBE VIDEO LINKS INTO MP3 CONVERTER</h4>
+
+        <div class='d-block mx-auto container'>
+        <form method="POST" class="mt-3 d-block mx-auto">
+            {% csrf_token %}
+            <fieldset class="form-group">
+                {{ form }}
+            </fieldset>
+            <button class="btn btn-outline-success d-block mx-auto mb-3" type="submit">Submit</button>
+        </form>
+        </div>
+
+        {% if messages %}
+        <ul class="messages d-block mx-auto">
+        {% for message in messages %}
+            <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+        {% endfor %}
+            </ul>
+    {% endif %}
+
+        </div>
+
+
+
+</body>
+
+</html>
